@@ -1,0 +1,275 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fefefe;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 100%;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 85%;
+  }
+}
+
+
+header {
+  background-color: #000;
+  padding: 1rem;
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: #ffce00;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.section {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: #d10000;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+
+
+.committee-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s;
+  border-top: 4px solid #007bff;
+}
+
+.committee-card:hover {
+  transform: translateY(-5px);
+}
+
+.committee-card h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.committee-card .name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #111;
+}
+
+.committee-card .term {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.table-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.league-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.league-table thead {
+  background-color: #222;
+  color: #fff;
+}
+
+.league-table th,
+.league-table td {
+  padding: 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.league-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.updated {
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: bold;
+  text-align: left;
+  padding: 0.5rem 1rem;
+}
+
+.highlight {
+  background-color: gold;
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .league-table {
+    min-width: 600px;
+  }
+}
+
+.league-table th,
+.league-table td {
+  white-space: nowrap;
+}
+
+.league-table tbody tr {
+  transition: background-color 0.3s;
+}
+
+.hero-banner {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://via.placeholder.com/1600x600') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.hero-banner .hero-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero-banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-banner p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+@media (max-width: 600px) {
+  .hero-banner h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-banner p {
+    font-size: 1rem;
+  }
+}
+
+.club-intro {
+  background-color: #f9f9f9;
+  padding: 3rem 1rem;
+}
+
+.intro-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.intro-logo img {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.intro-text h2 {
+  font-size: 2rem;
+  color: #d10000;
+  margin-bottom: 1rem;
+}
+
+.intro-text p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  .intro-container {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .intro-logo {
+    flex: 1;
+    text-align: center;
+  }
+
+  .intro-text {
+    flex: 2;
+  }
+}
