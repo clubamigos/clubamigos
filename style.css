@@ -275,3 +275,38 @@ footer {
     flex: 2;
   }
 }
+
+/* Force Light Mode – prevents browser/system from applying dark theme */
+@media (prefers-color-scheme: dark) {
+  body, html {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  header,
+  footer,
+  .section,
+  .club-intro,
+  .intro-container,
+  .intro-text,
+  .committee-card,
+  .table-container,
+  .league-table thead {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  nav ul li a {
+    color: #000000 !important;
+  }
+
+  nav ul li a.active,
+  nav ul li a:hover {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+  }
+
+  .intro-logo img {
+    background-color: #ffffff !important;
+  }
+}
