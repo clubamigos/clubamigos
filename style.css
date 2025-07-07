@@ -244,6 +244,8 @@ footer {
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background-color: #ffffff;   /* ✅ Add this line */
+  padding: 10px;               /* ✅ Optional: Add a bit of spacing */
 }
 
 .intro-text h2 {
