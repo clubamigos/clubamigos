@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Club Amigos - Home</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#111827">
+  <link rel="apple-touch-icon" href="logo.png">
   <link rel="stylesheet" href="style.css" />
   <meta name="color-scheme" content="light only">
 </head>
@@ -54,7 +57,16 @@
   
 
   <footer>
-    <p>© 2025 Club Amigos. All rights reserved.</p>
+    <p>© 2026 Club Amigos. All rights reserved.</p>
   </footer>
+  <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then((reg) => console.log('Service Worker Registered'))
+      .catch((err) => console.log(err));
+  });
+}
+</script>
 </body>
 </html>
