@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WC Predictor</title>
+  <link rel="stylesheet" href="predictor.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="main-header">
+  <div class="header-container">
+
+    <div class="header-left">
+
+  <a href="../index.html" class="back-home-btn">
+    ← Back to Website
+  </a>
+
+  <div class="logo" id="logoTrigger">
+    CLUB AMIGOS
+  </div>
+
+</div>
+
+    <!-- NAVIGATION (ALWAYS FREE ACCESS) -->
+    <nav id="mainNav" class="main-nav">
+  <a href="javascript:void(0)" onclick="navigate('leaderboard')">Leaderboard</a>
+
+  <a href="javascript:void(0)" onclick="navigate('match')">
+    Match Prediction
+  </a>
+
+  <a href="javascript:void(0)" onclick="navigate('bracket')">
+    Bracket Prediction
+  </a>
+
+  <a href="javascript:void(0)" onclick="navigate('rules')">
+    Rules
+  </a>
+</nav>
+
+    <div id="guestView" class="auth-area">
+      <button class="secondary-btn header-btn" onclick="openLogin()">Login</button>
+    </div>
+
+    <div id="userView" class="auth-area hidden">
+      <span id="welcomeText"></span>
+      <button class="secondary-btn header-btn" onclick="logout()">Logout</button>
+    </div>
+
+  </div>
+</header>
+
+<!-- PAGES -->
+<section id="leaderboard" class="page-section">
+  <div class="page-box">
+    <h2>Leaderboard</h2>
+
+    <div class="table-wrapper">
+  <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Match Points</th>
+          <th>Bracket Points</th>
+          <th>Total Points</th>
+        </tr>
+      </thead>
+
+      <tbody id="leaderboardBody"></tbody>
+      </table>
+</div>
+
+  </div>
+</section>
+
+<section id="match" class="page-section hidden">
+  <div class="page-box">
+    <h2>Match Prediction</h2>
+
+    <div id="matchesContainer" class="matches-container"></div>
+
+  </div>
+</section>
+
+<section id="bracket" class="page-section hidden">
+  <div class="page-box">
+    <h2>Bracket Prediction (Group Stage)</h2>
+
+    <p style="margin-top:10px;">
+      Select Group 1st, 2nd and Best 3rd (8 teams)
+    </p>
+
+    <div id="bracketContainer"></div>
+
+  </div>
+</section>
+
+<section id="rules" class="page-section hidden">
+  <div class="page-box rules-page">
+
+    <h2 class="page-title">📜 Tournament Rules</h2>
+
+    <div class="rules-content">
+
+      <h3>⚽ Match Prediction</h3>
+      <p>
+        Predict before matches are locked. All daily matches will be locked at <b>20:00 (8:00 PM)</b>.
+        Once locked, predictions cannot be edited.
+      </p>
+
+      <ul>
+        <li>
+  For knockout matches that go to penalties, the final score including penalty goals will be considered.
+  Example: If the match ends 1 - 1 and penalties finish 4 - 2, the final result will be counted as 5 - 3 for prediction scoring.
+</li>
+        <li>Exact score = 5 PTS</li>
+        <li>One correct team score = 2 PTS</li>
+        <li>Wrong prediction = 0 PTS</li>
+      </ul>
+
+      <hr>
+
+      <h3>🏆 Group Stage</h3>
+      <p>
+        Group Winners, Runners-up and Best 3rd must be selected before the first match begins.
+        After the first match starts, group predictions will be locked.
+      </p>
+
+      <ul>
+        <li>Correct Winner = 3 PTS</li>
+        <li>Correct Runner-up = 3 PTS</li>
+        <li>Best 3rd = 3 PTS</li>
+      </ul>
+
+      <hr>
+
+      <h3>🔥 Knockout Stage</h3>
+      <p>
+        Knockout stage predictions must be completed before the first knockout match begins.
+        After that, all predictions will be locked.
+      </p>
+
+      <ul>
+        <li>R32 Winner = 5 PTS</li>
+        <li>R16 Winner = 7 PTS</li>
+        <li>Quarter Final = 10 PTS</li>
+        <li>Semi Final = 15 PTS</li>
+        <li>3rd Place Match = 10 PTS</li>
+        <li>Final Winner = 20 PTS</li>
+      </ul>
+
+      <hr>
+
+      <h3>📌 Important</h3>
+      <ul>
+        <li>Always complete predictions before lock time</li>
+        <li>Daily match lock time is 20:00 (8:00 PM)</li>
+        <li>Group stage locks before first match</li>
+        <li>Knockout stage locks before first knockout match</li>
+        <li>Leaderboard updates automatically</li>
+        <li>Save predictions before leaving page</li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h3>Login</h3>
+
+    <input type="text" id="loginPhone" placeholder="Phone Number">
+    <input type="password" id="loginPassword" placeholder="Password">
+
+    <button class="primary-btn" onclick="login()">Login</button>
+    <button class="secondary-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div id="adminModal" class="modal">
+  <div class="modal-content">
+    <h3>Admin Access</h3>
+
+    <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+
+    <button class="primary-btn" onclick="verifyAdmin()">Enter</button>
+    <button class="secondary-btn" onclick="closeAdminModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- ================= PREDICTION VIEW MODAL ================= -->
+<div id="predictionModal" class="modal">
+  <div class="modal-content" style="max-width:600px; text-align:left;">
+
+    <h3 id="modalTitle">Match Predictions</h3>
+
+    <div id="predictionTable" style="margin-top:15px;"></div>
+
+    <button class="secondary-btn" onclick="closePredictionModal()">
+      Close
+    </button>
+
+  </div>
+</div>
+
+<!-- GROUP PREDICTIONS MODAL -->
+<div id="groupPredictionModal" class="modal">
+  <div class="modal-content" style="max-width:90vw; max-height:80vh; overflow:auto; text-align:left;">
+
+    <h3>Group Stage Predictions</h3>
+
+    <div id="groupPredictionTable" style="margin-top:15px;"></div>
+
+    <button class="secondary-btn" onclick="closeGroupPredictions()">
+      Close
+    </button>
+
+  </div>
+</div>
+
+<div id="changePasswordModal" class="modal">
+
+  <div class="modal-content">
+    <h3>Change Password</h3>
+
+    <input type="password" id="newPassword" placeholder="New Password (4-6 chars)">
+
+    <button class="primary-btn" onclick="submitNewPassword()">
+      Save Password
+    </button>
+
+  </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

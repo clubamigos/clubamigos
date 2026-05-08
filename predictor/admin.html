@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel - WC Predictor</title>
+  <link rel="stylesheet" href="predictor.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<script>
+  if (sessionStorage.getItem("isAdmin") !== "true") {
+    window.location.href = "index.html";
+  }
+</script>
+
+<header class="main-header">
+  <div class="header-container">
+    <div class="logo">ADMIN PANEL</div>
+    <div class="auth-area">
+      <button class="secondary-btn" onclick="logoutAdmin()">Logout</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ADMIN NAVIGATION ================= -->
+
+<div class="admin-nav">
+  <button onclick="showSection('usersSection')">Users</button>
+  <button onclick="showSection('leaderboardSection')">Leaderboard</button>
+  <button onclick="showSection('matchSection')">Match Prediction</button>
+  <button onclick="showSection('bracketSection')">Bracket Prediction</button>
+</div>
+
+<!-- ================= USERS SECTION ================= -->
+
+<section id="usersSection" class="admin-section">
+
+  <h2>Create User</h2>
+
+  <div class="admin-box">
+    <input type="text" id="newUsername" placeholder="Username">
+    <input type="text" id="newPhone" placeholder="Phone Number">
+    <input type="text" id="newPassword" placeholder="Password">
+
+    <button class="primary-btn" onclick="createUser()">Create User</button>
+  </div>
+
+  <hr style="margin:40px 0;">
+
+  <h2>All Users</h2>
+
+  <div id="usersList" class="users-list"></div>
+
+</section>
+
+<!-- ================= EMPTY SECTIONS ================= -->
+
+<section id="leaderboardSection" class="admin-section hidden">
+  <h2>Leaderboard Management</h2>
+  <p>Coming soon...</p>
+</section>
+
+<section id="matchSection" class="admin-section hidden">
+
+  <h2>Match Prediction Management</h2>
+
+  <!-- Create Match Box -->
+  <div class="admin-box">
+    <input type="number" id="matchNo" placeholder="Match No">
+    <input type="date" id="matchDate">
+    <select id="matchGroup">
+  <option value="">Select Stage</option>
+
+  <!-- GROUPS -->
+  <option value="A">Group A</option>
+  <option value="B">Group B</option>
+  <option value="C">Group C</option>
+  <option value="D">Group D</option>
+  <option value="E">Group E</option>
+  <option value="F">Group F</option>
+  <option value="G">Group G</option>
+  <option value="H">Group H</option>
+  <option value="I">Group I</option>
+  <option value="J">Group J</option>
+  <option value="K">Group K</option>
+  <option value="L">Group L</option>
+
+  <!-- KNOCKOUT -->
+  <option value="R32">Round of 32</option>
+  <option value="R16">Round of 16</option>
+  <option value="QF">Quarter Final</option>
+  <option value="SF">Semi Final</option>
+  <option value="3RD">3rd Place Match</option>
+  <option value="FINAL">Final</option>
+</select>
+    <input type="text" id="teamA" placeholder="Team A">
+    <input type="text" id="teamB" placeholder="Team B">
+
+    <button class="primary-btn" onclick="createMatch()">Create Match</button>
+  </div>
+
+  <hr style="margin:40px 0;">
+
+  <h2>All Matches</h2>
+
+  <div id="matchesList" class="matches-list"></div>
+
+</section>
+
+<section id="bracketSection" class="admin-section hidden">
+
+  <h2>Bracket Prediction Management</h2>
+
+  <div id="bracketAdminContainer"></div>
+
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+<script src="config.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
