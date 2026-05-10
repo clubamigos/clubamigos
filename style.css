@@ -379,34 +379,58 @@ nav ul li {
 .potm-container {
   display: none;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  column-gap: 1.5rem;
+  row-gap: 2rem;
   align-items: stretch;
+  padding: 0.5rem 0;
 }
 
 .potm-card {
-  background: #fff;
+  background: linear-gradient(to bottom, #ffffff, #f8f8f8);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease;
+
+  border: 2px solid #d4af37;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.10),
+    0 0 0 1px rgba(255,255,255,0.6) inset;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   padding-bottom: 1.2rem;
+
   min-height: 520px;
   height: 100%;
 }
 
 .potm-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.18),
+    0 0 12px rgba(212,175,55,0.35);
 }
 
 .potm-month {
-  background: #000;
+  background: linear-gradient(to right, #000000, #1a1a1a);
   color: #ffce00;
-  padding: 12px;
+
+  padding: 14px;
+  width: 100%;
+
   font-weight: bold;
   font-size: 1rem;
+
+  letter-spacing: 1px;
+
+  border-bottom: 2px solid #d4af37;
 }
 
 .potm-card img {
@@ -514,6 +538,8 @@ nav ul li {
 
   .potm-container {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 0.2rem;
   }
 
   .potm-card {
@@ -532,4 +558,18 @@ nav ul li {
     width: 100%;
     max-width: 350px;
   }
+}
+
+/* Better mobile card separation */
+
+@media (max-width: 768px) {
+
+  .potm-card {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+  }
+
+}
+
+.winner {
+  border: 3px solid gold;
 }
