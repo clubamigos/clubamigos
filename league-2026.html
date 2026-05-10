@@ -233,10 +233,10 @@
   function togglePOTM() {
     const container = document.getElementById("potmContainer");
 
-    if (container.style.display === "grid") {
-      container.style.display = "none";
+    if (container.classList.contains("show")) {
+      container.classList.remove("show");
     } else {
-      container.style.display = "grid";
+      container.classList.add("show");
     }
   }
 </script>

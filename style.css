@@ -377,7 +377,7 @@ nav ul li {
 }
 
 .potm-container {
-  display: grid;
+  display: none; /* IMPORTANT */
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   column-gap: 1.8rem;
   row-gap: 2.2rem;
@@ -576,4 +576,8 @@ nav ul li {
 
 .potm-section {
   margin-bottom: 3rem;
+}
+
+.potm-container.show {
+  display: grid;
 }
