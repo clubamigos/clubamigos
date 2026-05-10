@@ -377,11 +377,9 @@ nav ul li {
 }
 
 .potm-container {
-  display: none; /* IMPORTANT */
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  column-gap: 1.8rem;
-  row-gap: 2.2rem;
+  display: none;
   padding: 1rem 0.8rem;
+  gap: 2.2rem;
 }
 
 .potm-card {
@@ -580,4 +578,13 @@ nav ul li {
 
 .potm-container.show {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .potm-container.show {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 1.4rem 1rem;
+  }
 }
