@@ -379,10 +379,13 @@ nav ul li {
 .potm-container {
   display: none;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  column-gap: 1.5rem;
-  row-gap: 2rem;
+
+  column-gap: 1.8rem;
+  row-gap: 2.2rem;
+
   align-items: stretch;
-  padding: 0.5rem 0;
+
+  padding: 1rem 0.5rem;
 }
 
 .potm-card {
@@ -537,10 +540,13 @@ nav ul li {
 @media (max-width: 768px) {
 
   .potm-container {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-    padding: 0 0.2rem;
-  }
+  grid-template-columns: 1fr;
+
+  row-gap: 1.8rem;
+  column-gap: 0;
+
+  padding: 1rem 0.6rem;
+}
 
   .potm-card {
     min-height: auto;
@@ -572,4 +578,8 @@ nav ul li {
 
 .winner {
   border: 3px solid gold;
+}
+
+.potm-section {
+  margin-bottom: 3rem;
 }
