@@ -34,6 +34,135 @@
   <section class="section">
     <h2>CLUB AMIGOS LEAGUE 2026</h2>
     <p class="table-title">AMIGOS LEAGUE (RANKING YEAR 2026)</p>
+
+    <div class="potm-section">
+
+  <button class="potm-toggle-btn" onclick="togglePOTM()">
+    🏆 PLAYER OF THE MONTH 2026
+  </button>
+
+  <div class="potm-container" id="potmContainer">
+
+    <!-- January -->
+    <div class="potm-card inactive">
+      <div class="potm-month">JANUARY 2026</div>
+      <img src="images/potm/logo.jpg" alt="Club Logo">
+      <h3>No Player</h3>
+      <p>League had not started</p>
+    </div>
+
+    <!-- February -->
+    <div class="potm-card inactive">
+      <div class="potm-month">FEBRUARY 2026</div>
+      <img src="images/potm/logo.jpg" alt="Club Logo">
+      <h3>No Player</h3>
+      <p>League had not started</p>
+    </div>
+
+    <!-- March -->
+    <div class="potm-card inactive">
+      <div class="potm-month">MARCH 2026</div>
+      <img src="images/potm/logo.jpg" alt="Club Logo">
+      <h3>No Player</h3>
+      <p>Minimum 5 Match Days Required</p>
+    </div>
+
+    <!-- April -->
+<div class="potm-card winner">
+  <div class="potm-month">APRIL 2026</div>
+
+  <div class="potm-badge">🏆 PLAYER OF THE MONTH</div>
+
+  <img src="images/potm/shiyante.png" alt="Shiyante">
+
+  <h3 class="potm-player-name">SHIYANTE</h3>
+
+  <div class="potm-stats">
+
+    <div class="stat-row">
+      <span>Games Played</span>
+      <strong>9</strong>
+    </div>
+
+    <div class="stat-row">
+      <span>Games Won</span>
+      <strong>5</strong>
+    </div>
+
+    <div class="stat-row">
+      <span>Games Draw</span>
+      <strong>2</strong>
+    </div>
+
+    <div class="stat-row">
+      <span>Games Loss</span>
+      <strong>2</strong>
+    </div>
+
+    <div class="stat-row">
+      <span>Win %</span>
+      <strong>56%</strong>
+    </div>
+
+    <div class="stat-row">
+      <span>Total Points</span>
+      <strong>17</strong>
+    </div>
+
+  </div>
+</div>
+
+    <!-- May to December -->
+    <div class="potm-card coming-soon">
+      <div class="potm-month">MAY 2026</div>
+      <img src="images/potm/comingsoon.jpg" alt="Coming Soon">
+      <h3>Coming Soon</h3>
+    </div>
+
+    <div class="potm-card coming-soon">
+      <div class="potm-month">JUNE 2026</div>
+      <img src="images/potm/comingsoon.jpg" alt="Coming Soon">
+      <h3>Coming Soon</h3>
+    </div>
+
+    <div class="potm-card coming-soon">
+      <div class="potm-month">JULY 2026</div>
+      <img src="images/potm/comingsoon.jpg" alt="Coming Soon">
+      <h3>Coming Soon</h3>
+    </div>
+
+    <div class="potm-card coming-soon">
+      <div class="potm-month">AUGUST 2026</div>
+      <img src="images/potm/comingsoon.jpg" alt="Coming Soon">
+      <h3>Coming Soon</h3>
+    </div>
+
+    <div class="potm-card coming-soon">
+      <div class="potm-month">SEPTEMBER 2026</div>
+      <img src="images/potm/comingsoon.jpg" alt="Coming Soon">
+      <h3>Coming Soon</h3>
+    </div>
+
+    <div class="potm-card coming-soon">
+      <div class="potm-month">OCTOBER 2026</div>
+      <img src="images/potm/comingsoon.jpg" alt="Coming Soon">
+      <h3>Coming Soon</h3>
+    </div>
+
+    <div class="potm-card coming-soon">
+      <div class="potm-month">NOVEMBER 2026</div>
+      <img src="images/potm/comingsoon.jpg" alt="Coming Soon">
+      <h3>Coming Soon</h3>
+    </div>
+
+    <div class="potm-card coming-soon">
+      <div class="potm-month">DECEMBER 2026</div>
+      <img src="images/potm/comingsoon.jpg" alt="Coming Soon">
+      <h3>Coming Soon</h3>
+    </div>
+
+  </div>
+</div>
   
     <div class="table-container">
       <table class="league-table">
@@ -99,5 +228,17 @@
   <footer>
     <p>© 2026 Club Amigos. All rights reserved.</p>
   </footer>
+
+  <script>
+  function togglePOTM() {
+    const container = document.getElementById("potmContainer");
+
+    if (container.style.display === "grid") {
+      container.style.display = "none";
+    } else {
+      container.style.display = "grid";
+    }
+  }
+</script>
 </body>
 </html>
