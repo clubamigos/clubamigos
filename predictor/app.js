@@ -2,10 +2,10 @@ const database = firebase.database();
 
 const GROUPS = {
   A: ["Mexico", "South Africa", "South Korea", "Czech Republic"],
-  B: ["Canada", "Bosnia & Herzegovina", "Qatar", "Switzerland"],
+  B: ["Canada", "Bosnia and Herzegovina", "Qatar", "Switzerland"],
   C: ["Brazil", "Morocco", "Haiti", "Scotland"],
-  D: ["United States", "Paraguay", "Australia", "Turkey"],
-  E: ["Germany", "Curaçao", "Ivory Coast", "Ecuador"],
+  D: ["United States", "Paraguay", "Australia", "Turkiye"],
+  E: ["Germany", "Curacao", "Ivory Coast", "Ecuador"],
   F: ["Netherlands", "Japan", "Sweden", "Tunisia"],
   G: ["Belgium", "Egypt", "Iran", "New Zealand"],
   H: ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"],
