@@ -1849,7 +1849,7 @@ function calculateKnockoutPoints(stage, matchNo, actualWinner, pointsPerCorrect)
 
       const uid = userChild.key;
 
-      database.ref(`userBracket/${uid}/${stage}/${matchNo}`)
+      database.ref(`userBracket/${uid}/${stage}/${String(matchNo)}`)
         .once("value")
         .then(userSnap => {
 
