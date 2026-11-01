@@ -120,19 +120,19 @@ function renderStandings() {
     : index + 1;
 
   return `
-    <tr>
-      <td>${rank}</td>
-      <td>${escapeHTML(row.name)}</td>
-      <td>${row.played}</td>
-      <td>${row.wins}</td>
-      <td>${row.draws}</td>
-      <td>${row.losses}</td>
-      <td>${row.goals}</td>
-      <td>${row.motm}</td>
-      <td>${Math.round(row.winPercentage)}%</td>
-      <td>${row.points}</td>
-    </tr>
-  `;
+  <tr>
+    <td>${rank}</td>
+    <td>${escapeHTML(row.name)}</td>
+    <td>${row.played}</td>
+    <td>${row.points}</td>
+    <td>${row.wins}</td>
+    <td>${row.draws}</td>
+    <td>${row.losses}</td>
+    <td>${row.goals}</td>
+    <td>${row.motm}</td>
+    <td>${Math.round(row.winPercentage)}%</td>
+  </tr>
+`;
 }).join("");
 }
 
