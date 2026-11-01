@@ -16,7 +16,7 @@ export function calculateStandings(
 ) {
     const stats = new Map();
 
-  if (view === "all") {
+  if (view === "all" || (view === "season" && String(year) === "2026")) {
     for (const [id, legacy] of Object.entries(legacyStats || {})) {
       if (!legacy) continue;
 
