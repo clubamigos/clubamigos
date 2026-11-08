@@ -6,9 +6,12 @@ import {
   onValue
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
+
 import {
-  calculateStandings
+  calculateStandings,
+  calculateMatchPoints
 } from "./standings-calculator.js";
+
 
 const viewSelect = document.getElementById("publicView");
 const yearSelect = document.getElementById("publicYear");
@@ -401,6 +404,71 @@ function goalScorers(match, team) {
   `).join("");
 }
 
+
+function publicPlayerAttendance(match, team) {
+  const teamPlayers = Object.values(match.players || {})
+    .filter(player =>
+      player.team === team &&
+      ["present", "late"].includes(player.attendance)
+    )
+    .sort((a, b) =>
+      (a.name || "").localeCompare(b.name || "")
+    );
+
+  if (!teamPlayers.length) {
+    return `<p class="muted">No players recorded</p>`;
+  }
+
+  
+  return teamPlayers.map(player => {
+    const points = calculateMatchPoints(match, player);
+    const pointsLabel = points > 0 ? `+${points}` : String(points);
+
+    return `
+      <div class="result-player-row">
+        <span>${escapeHTML(player.name || "Unknown")}</span>
+        <span class="result-player-info">
+          <span class="result-player-points">${pointsLabel} pts</span>
+          <span class="${player.attendance === "late"
+            ? "result-player-late"
+            : "result-player-present"}">
+            ${player.attendance === "late" ? "◷" : "✓"}
+          </span>
+        </span>
+      </div>
+    `;
+  }).join("");
+
+}
+
+function publicAbsentPlayers(match) {
+  const absent = Object.values(match.players || {})
+    .filter(player => player.attendance === "absent")
+    .sort((a, b) =>
+      (a.name || "").localeCompare(b.name || "")
+    );
+
+  if (!absent.length) {
+    return "None";
+  }
+
+  
+  return absent
+    .map(player => {
+      const points = calculateMatchPoints(match, player);
+
+      return `
+        <span class="result-absent-player">
+          ${escapeHTML(player.name || "Unknown")}
+          <strong>${points} pts</strong>
+        </span>
+      `;
+    })
+    .join(", ");
+
+}
+
+
 function renderResults() {
   const view = resultsView.value;
   const year = resultsYear.value;
@@ -471,6 +539,37 @@ function renderResults() {
           </div>
           <div class="result-team">${escapeHTML(teamB)}</div>
         </div>
+
+
+        <div class="result-attendance">
+
+          <div class="result-attendance-teams">
+
+            <div class="result-attendance-team">
+              <h4>${escapeHTML(teamA)}</h4>
+              ${publicPlayerAttendance(match, "A")}
+            </div>
+
+            <div class="result-attendance-team">
+              <h4>${escapeHTML(teamB)}</h4>
+              ${publicPlayerAttendance(match, "B")}
+            </div>
+
+          </div>
+
+          <div class="result-absent">
+            <strong>🔴 Absent:</strong>
+            ${publicAbsentPlayers(match)}
+          </div>
+
+          <div class="result-attendance-legend">
+            <span>🟢 ✓ Present</span>
+            <span>🟠 ◷ Late</span>
+            <span>🔴 Absent</span>
+          </div>
+
+        </div>
+
 
         <div class="result-details">
           <div>

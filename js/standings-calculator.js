@@ -148,3 +148,51 @@ export function calculateStandings(
 
   return rows;
 }
+
+
+export function calculateMatchPoints(match, player) {
+  if (!player) return 0;
+
+  const attendance = player.attendance;
+
+  if (attendance === "absent") {
+    return -3;
+  }
+
+  if (!["present", "late"].includes(attendance)) {
+    return 0;
+  }
+
+  if (!["A", "B"].includes(player.team)) {
+    return 0;
+  }
+
+  const scoreA = Number(match.scoreA);
+  const scoreB = Number(match.scoreB);
+
+  if (
+    !Number.isInteger(scoreA) ||
+    !Number.isInteger(scoreB) ||
+    scoreA < 0 ||
+    scoreB < 0
+  ) {
+    return 0;
+  }
+
+  let points = 0;
+
+  if (scoreA === scoreB) {
+    points = 1;
+  } else if (
+    (player.team === "A" && scoreA > scoreB) ||
+    (player.team === "B" && scoreB > scoreA)
+  ) {
+    points = 3;
+  }
+
+  if (attendance === "late") {
+    points -= 1;
+  }
+
+  return points;
+}
