@@ -460,3 +460,145 @@ body {
   margin: 20px auto;
   border-radius: 14px;
 }
+
+
+/* PUBLIC RESULTS — PLAYER ATTENDANCE */
+
+.result-attendance {
+  width: 100%;
+  margin-bottom: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.result-attendance-teams {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.result-attendance-team {
+  min-width: 0;
+}
+
+.result-attendance-team h4 {
+  color: var(--gold);
+  font-size: 12px;
+  margin: 0 0 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+
+.result-player-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.result-player-row span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+
+.result-player-row > span:last-child {
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+
+.result-player-present {
+  color: #4ade80;
+}
+
+.result-player-late {
+  color: #fb923c;
+}
+
+.result-absent {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.result-absent strong {
+  color: #f87171;
+}
+
+.result-attendance-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 14px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 480px) {
+  .result-attendance-teams {
+    gap: 10px;
+  }
+
+  .result-player-row {
+    font-size: 11px;
+    gap: 5px;
+  }
+
+  .result-attendance-team h4 {
+    font-size: 11px;
+  }
+
+  .result-attendance-legend {
+    font-size: 10px;
+  }
+}
+
+
+/* PUBLIC RESULTS — INDIVIDUAL MATCH POINTS */
+
+.result-player-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.result-player-points {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.result-absent-player {
+  display: inline-block;
+  margin-right: 8px;
+  white-space: normal;
+}
+
+.result-absent-player strong {
+  color: #f87171;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .result-player-info {
+    gap: 5px;
+  }
+
+  .result-player-points {
+    font-size: 10px;
+  }
+}
